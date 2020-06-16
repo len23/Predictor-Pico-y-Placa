@@ -20,20 +20,27 @@ const RESTRCTIONS = {
   }
 }
 
-const DAYS = ['monday','tuesday','wednesday','thursday','friday']
+const DAYS = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday']
 
 const picoPlaca = (plate,date,time)=>{
-
   let dateDay = new Date(`${date},${time}`);
-  let lastDigit = plate.charAt(plate.length-1);
+  let lastDigit = parseInt(plate.charAt(plate.length-1));
   let day = DAYS[dateDay.getDay()];
   let hourDay = dateDay.getHours();
   let minHour = dateDay.getMinutes();
-  
-  console.log(`${hourDay}:${minHour}`);
-  
+  let rest = RESTRCTIONS[day].plate;
 
+  
+  if(rest.includes(lastDigit)){
+    console.log('No puede circular');
+  }else{
+    console.log('Puede circular');
+  }
+  
+   
 
+  
+  
 }
 
-picoPlaca('PCK-5352','2020-06-16','17:09');
+picoPlaca('PCK-5351','2020-06-15','17:09');
