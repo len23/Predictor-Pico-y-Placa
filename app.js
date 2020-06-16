@@ -30,17 +30,18 @@ const picoPlaca = (plate,date,time)=>{
   let minHour = dateDay.getMinutes();
   let rest = RESTRCTIONS[day].plate;
 
-  
   if(rest.includes(lastDigit)){
-    console.log('No puede circular');
-  }else{
-    console.log('Puede circular');
-  }
-  
-   
-
-  
+    if((hourDay>=7 && hourDay<=9) || (hourDay>=16 && hourDay<=19)){
+        if((hourDay==9 || hourDay===19) && (minHour<=30)){
+          return 'You can drive';
+        }else{
+          return `You can't be on the road`;
+        }
+    }else{
+      return `You can't be on the road`;
+    }
   
 }
+}
 
-picoPlaca('PCK-5351','2020-06-15','17:09');
+picoPlaca('PCK-5357','2020-06-15','19:31');
