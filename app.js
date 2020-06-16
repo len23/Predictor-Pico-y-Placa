@@ -20,14 +20,20 @@ const RESTRCTIONS = {
   }
 }
 
+const DAYS = ['monday','tuesday','wednesday','thursday','friday']
+
 const picoPlaca = (plate,date,time)=>{
 
+  let dateDay = new Date(`${date},${time}`);
   let lastDigit = plate.charAt(plate.length-1);
-  let day = new Date(date).getDay()
-
-  console.log(lastDigit, day);
+  let day = DAYS[dateDay.getDay()];
+  let hourDay = dateDay.getHours();
+  let minHour = dateDay.getMinutes();
   
+  console.log(`${hourDay}:${minHour}`);
+  
+
 
 }
 
-picoPlaca('PCK-5352','2020-12-17','00:36:00');
+picoPlaca('PCK-5352','2020-06-16','17:09');
