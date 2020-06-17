@@ -41,43 +41,50 @@ class UI {
         document.querySelector('#error').innerText='';
       }, 3000);
   }
-  clearFields() {
-    document.getElementById('plate').value = '';
-    document.getElementById('date').value = '';
-    document.getElementById('hour').value = '';
+  validatePlate(placa){
+      let exp = new RegExp(/^[a-z]{3,3}-\d{4,4}$/);
+      return exp.test(placa);
   }
 }
 
 document.getElementById('plate-form').addEventListener('submit', function(e){
   e.preventDefault();
-  const plate = document.getElementById('plate').value,
+  const plate = document.getElementById('plate').value.toLowerCase() ,
   date = document.getElementById('date').value,
   time = document.getElementById('time').value
+
   // Instantiate UI
   const ui = new UI();
-
-  if(plate === '' || date === '' || time === ''){
-   // Error alert
-    ui.showAlert('Please fill in all fields', 'error');
-  }else {
-       // Instantiate plate
-        const plateObj = new Plate(plate, date, time);
-        //Get the message section
-        const msg =  document.getElementById('predict');
-         plateObj.predictPicoPlaca((e,i)=>{
-            if(e){
-              msg.style.color = '#0cb870';
-              msg.innerText=i
-            }else{
-              msg.style.color = '#c72b2ba4';
-              msg.innerText=i
-            }
-
-        });
-        setTimeout(function(){
-          document.querySelector('#predict').innerText='';
-        }, 2000);
+  
+  
+  if(!ui.validatePlate(plate)){
+    ui.showAlert('Insert a vlid plate like: ABC-1234', 'error');
+  }else{
+    if(plate === '' || date === '' || time === ''){
+      // Error alert
+       ui.showAlert('Please fill in all fields', 'error');
+     }else {
+          // Instantiate plate
+           const plateObj = new Plate(plate, date, time);
+           //Get the message section
+           const msg =  document.getElementById('predict');
+            plateObj.predictPicoPlaca((e,i)=>{
+               if(e){
+                 msg.style.color = '#0cb870';
+                 msg.innerText=i
+               }else{
+                 msg.style.color = '#c72b2ba4';
+                 msg.innerText=i
+               }
+   
+           });
+           setTimeout(function(){
+             document.querySelector('#predict').innerText='';
+           }, 2000);
+     }
   }
+
+  
    
 
 });
