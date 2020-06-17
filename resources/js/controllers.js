@@ -1,3 +1,34 @@
+const RESTRCTIONS = {
+  timeRestriction:{
+    morning: '7:00 - 9:30',
+    evening: '16:00 - 19:30'
+  },
+  monday:{
+    plateDigit: [1,2]
+  },
+  tuesday:{
+    plateDigit: [3,4]
+  },
+  wednesday: {
+    plateDigit: [5,6]
+  },
+  thursday: {
+    plateDigit: [7,8]
+  },
+  friday: {
+    plateDigit: [9,0]
+  },
+  saturday: {
+    plateDigit: []
+  },
+  sunday: {
+    plateDigit: []
+  }
+}
+
+const DAYS = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday']
+
+
 //Class for plate
 class Plate  {
  constructor(plate,date,hour){
@@ -7,13 +38,17 @@ class Plate  {
  } 
 
   predictPicoPlaca (callback) {
+   
+    
   
   //Get all the vals to make the validator operations
-  const dateDay = new Date(`${this.date},${this.time}`);
+  const dateDay = new Date(`${this.date.replace(/-/g,'/')},${this.time}`);
   const lastDigit = parseInt(this.plate.charAt(this.plate.length-1));
   const day = DAYS[dateDay.getDay()];
   const hourDay = dateDay.getHours();
   const minHour = dateDay.getMinutes();  
+
+  
   const rest = RESTRCTIONS[day].plateDigit;
   
 

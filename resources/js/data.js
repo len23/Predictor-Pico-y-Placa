@@ -1,6 +1,6 @@
 // Here is the data to validate if a plate of one vehicle can be on the road 
 
-const RESTRCTIONS = {
+/* const RESTRCTIONS = {
   timeRestriction:{
     morning: '7:00 - 9:30',
     evening: '16:00 - 19:30'
@@ -29,4 +29,4 @@ const RESTRCTIONS = {
 }
 
 const DAYS = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday']
-
+ */
