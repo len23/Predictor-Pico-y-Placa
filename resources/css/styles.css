@@ -39,6 +39,13 @@ form .cont-labels{
   display: flex;
   justify-content: space-between;
 }
+
+form .cont-labels input {
+  padding: 3px 15px;
+  border: 2px solid rgb(78, 73, 73);
+  width: 50%;
+}
+
 .predict-button {
     background-color: rgb(35, 148, 168);
     height: 40px;
