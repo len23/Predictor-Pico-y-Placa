@@ -54,7 +54,7 @@ class Plate  {
 
   if( rest.includes(lastDigit) ) {
     if((hourDay>=7 && hourDay<=9) || (hourDay>=16 && hourDay<=19)){
-        if((hourDay===9 || hourDay===19) && (minHour>=30)){
+        if((hourDay===9 || hourDay===19) && (minHour>30)){
           //Allways return a callback function with two vals
           return callback (true, `You can be on the road`);
         }
