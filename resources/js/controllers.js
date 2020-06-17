@@ -13,7 +13,6 @@ class Plate  {
   let minHour = dateDay.getMinutes();  
   let rest = RESTRCTIONS[day].plateDigit;
     
-    console.log(rest);
     
   if(rest.includes(lastDigit)){
     if((hourDay>=7 && hourDay<=9) || (hourDay>=16 && hourDay<=19)){
@@ -27,9 +26,7 @@ class Plate  {
     }
     
   }
-  return callback (true, `You can be on the road`);
-  console.log('Llega hasta aca');
-  
+  return callback (true, `You can be on the road`);  
 }
 }
 
@@ -45,16 +42,21 @@ class UI {
       let exp = new RegExp(/^[a-z]{3,3}-\d{4,4}$/);
       return exp.test(placa);
   }
+  cleanOutput(){
+    document.querySelector('#predict').innerText=''
+  }
 }
 
 document.getElementById('plate-form').addEventListener('submit', function(e){
   e.preventDefault();
+  // Instantiate UI
+  const ui = new UI();
+  
   const plate = document.getElementById('plate').value.toLowerCase() ,
   date = document.getElementById('date').value,
   time = document.getElementById('time').value
 
-  // Instantiate UI
-  const ui = new UI();
+  
   
   
   if(!ui.validatePlate(plate)){
@@ -79,8 +81,8 @@ document.getElementById('plate-form').addEventListener('submit', function(e){
    
            });
            setTimeout(function(){
-             document.querySelector('#predict').innerText='';
-           }, 10000);
+             ui.cleanOutput();
+           }, 4000);
      }
   }
 

@@ -17,6 +17,12 @@ const RESTRCTIONS = {
   },
   friday: {
     plateDigit: [9,0]
+  },
+  saturday: {
+    plateDigit: []
+  },
+  sunday: {
+    plateDigit: []
   }
 }
 
