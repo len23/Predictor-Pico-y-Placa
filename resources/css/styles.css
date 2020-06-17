@@ -78,6 +78,9 @@ form .cont-labels{
   form .cont-labels{
     flex-direction: column;
   }
+  form .cont-labels input {
+    height: 40px;
+  }
   .container-predict{
     height: 120px;
     width: 100%;
