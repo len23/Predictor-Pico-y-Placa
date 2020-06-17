@@ -14,28 +14,33 @@
       <h1>PICO Y PLACA PREDICTOR</h1>
     </header>
     <section>
-      <form action="">
+      <form id="plate-form">
         <div class="cont-labels">
-            <label for="">Enter your plate</label>
-            <input type="text">
+            <label for="plate">Enter your plate</label>
+            <input type="text" id="plate">
         </div>
         <div class="cont-labels">
-          <label for="">Select your Date</label>
-          <input type="date">
+          <label for="date">Select your Date</label>
+          <input type="date" id="date">
         </div>
         <div class="cont-labels">
-          <label for="">Insert an hour</label>
-            <input type="time">
+          <label for="time">Insert an hour</label>
+            <input type="time" id="time">
         </div>
-  
+        <button class="predict-button" type="submit" >Predict</button>
       </form>
       
     </section>
+    <div class="container-predict">
+      <p id="predict"></p>
+    </div>
+    
   </div>
  
   <footer>
 
   </footer>
   <script src="app.js"></script>
+  <script src="controllers.js"></script>
 </body>
 </html>

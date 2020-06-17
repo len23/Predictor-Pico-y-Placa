@@ -38,3 +38,20 @@ form .cont-labels{
   display: flex;
   justify-content: space-between;
 }
+.predict-button {
+    background-color: rgb(35, 148, 168);
+    height: 40px;
+    width: 90px;
+    cursor: pointer;
+    border: 2px solid rgb(18, 94, 138);
+    color: white;
+    font-size: 20px;
+    margin: 50px 50%;
+    
+}
+
+#predict{
+  text-align: center;
+  font-size: 50px;
+  text-transform: uppercase;
+}
