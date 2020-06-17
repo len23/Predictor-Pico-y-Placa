@@ -1,3 +1,4 @@
+//Class for plate
 class Plate  {
  constructor(plate,date,hour){
   this.plate = plate.toString();
@@ -6,17 +7,20 @@ class Plate  {
  } 
 
   predictPicoPlaca (callback) {
-  let dateDay = new Date(`${this.date},${this.time}`);
-  let lastDigit = parseInt(this.plate.charAt(this.plate.length-1));
-  let day = DAYS[dateDay.getDay()];
-  let hourDay = dateDay.getHours();
-  let minHour = dateDay.getMinutes();  
-  let rest = RESTRCTIONS[day].plateDigit;
-    
-    
-  if(rest.includes(lastDigit)){
+  
+  //Get all the vals to make the validator operations
+  const dateDay = new Date(`${this.date},${this.time}`);
+  const lastDigit = parseInt(this.plate.charAt(this.plate.length-1));
+  const day = DAYS[dateDay.getDay()];
+  const hourDay = dateDay.getHours();
+  const minHour = dateDay.getMinutes();  
+  const rest = RESTRCTIONS[day].plateDigit;
+  
+
+  if( rest.includes(lastDigit) ) {
     if((hourDay>=7 && hourDay<=9) || (hourDay>=16 && hourDay<=19)){
         if((hourDay===9 || hourDay===19) && (minHour>=30)){
+          //Allways return a callback function with two vals
           return callback (true, `You can be on the road`);
         }
           return callback (false, `You can't be on the road`);
@@ -30,6 +34,7 @@ class Plate  {
 }
 }
 
+//Class for handle the User interface
 class UI { 
   showAlert(message, className){
     document.getElementById(className).innerText=message;
@@ -49,19 +54,19 @@ class UI {
 
 document.getElementById('plate-form').addEventListener('submit', function(e){
   e.preventDefault();
-  // Instantiate UI
+  // Instantiate UI fro handle the user interface
   const ui = new UI();
   
+  // Get the data from the form
   const plate = document.getElementById('plate').value.toLowerCase() ,
   date = document.getElementById('date').value,
   time = document.getElementById('time').value
 
-  
-  
-  
+  //Validate if it is a valid Plate
   if(!ui.validatePlate(plate)){
     ui.showAlert('Insert a vlid plate like: ABC-1234', 'error');
   }else{
+    //Valid if the user fill all the fields
     if(plate === '' || date === '' || time === ''){
       // Error alert
        ui.showAlert('Please fill in all fields', 'error');
@@ -70,6 +75,8 @@ document.getElementById('plate-form').addEventListener('submit', function(e){
            const plateObj = new Plate(plate, date, time);
            //Get the message section
            const msg =  document.getElementById('predict');
+
+           //Output the message using callback
             plateObj.predictPicoPlaca((e,i)=>{
                if(e){
                  msg.style.color = '#0cb870';
@@ -80,6 +87,8 @@ document.getElementById('plate-form').addEventListener('submit', function(e){
                }
    
            });
+
+           //Cleaning the output
            setTimeout(function(){
              ui.cleanOutput();
            }, 4000);

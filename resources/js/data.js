@@ -1,3 +1,5 @@
+// Here is the data to validate if a plate of one vehicle can be on the road 
+
 const RESTRCTIONS = {
   timeRestriction:{
     morning: '7:00 - 9:30',
