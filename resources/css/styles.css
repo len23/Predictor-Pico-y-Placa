@@ -84,9 +84,12 @@ form .cont-labels input {
   }
   form .cont-labels{
     flex-direction: column;
+    text-align: center;
   }
   form .cont-labels input {
     height: 40px;
+    width: 100%;
+    margin-top: 10px;
   }
   .container-predict{
     height: 120px;
