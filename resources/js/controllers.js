@@ -94,10 +94,6 @@ document.getElementById('plate-form').addEventListener('submit', function(e){
            }, 4000);
      }
   }
-
-  
-   
-
 });
 
 
