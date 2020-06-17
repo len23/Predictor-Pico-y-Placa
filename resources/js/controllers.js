@@ -64,7 +64,7 @@ document.getElementById('plate-form').addEventListener('submit', function(e){
   const ui = new UI();
   
   // Get the data from the form
-  const plate = document.getElementById('plate').value.toLowerCase() ,
+  const plate = document.getElementById('plate').value.toLowerCase().trim() ,
   date = document.getElementById('date').value,
   time = document.getElementById('time').value
 
