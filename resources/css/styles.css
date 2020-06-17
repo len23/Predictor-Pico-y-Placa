@@ -67,3 +67,22 @@ form .cont-labels{
   font-size: 20px;
 
 }
+
+@media only screen and (max-width:767px){
+  form .cont-labels{
+    flex-direction: column;
+  }
+  .container-predict{
+    height: 120px;
+    width: 100%;
+    
+  }
+  .predict-button{
+    margin: 50px 0;
+    width: 100%;
+  }
+  #predict{
+    font-size: 150%;
+    
+  }
+}
