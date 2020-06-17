@@ -80,7 +80,7 @@ document.getElementById('plate-form').addEventListener('submit', function(e){
            });
            setTimeout(function(){
              document.querySelector('#predict').innerText='';
-           }, 2000);
+           }, 10000);
      }
   }
 

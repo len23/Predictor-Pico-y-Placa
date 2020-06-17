@@ -69,6 +69,12 @@ form .cont-labels{
 }
 
 @media only screen and (max-width:767px){
+  section{
+    margin-top: 25px;
+  }
+  form {
+    width: 90%;
+  }
   form .cont-labels{
     flex-direction: column;
   }
